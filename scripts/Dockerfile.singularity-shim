@@ -2,8 +2,8 @@ FROM singularityware/singularity:latest
 
 RUN printf '#!/bin/bash\n\
         set -eu\n\
-        USERNAME=$(sed -rn "s/^([^:]+):[^:]+:${UID}:.*/\1/p" /etc/passwd)\n\
-        GROUPNAME=$(sed -rn "s/^([^:]+):[^:]+:${GID}:.*/\1/p" /etc/group)\n\
+        USERNAME=$(sed -rn "s/^([^:]+):[^:]+:${UID}:.*/\\1/p" /etc/passwd)\n\
+        GROUPNAME=$(sed -rn "s/^([^:]+):[^:]+:${GID}:.*/\\1/p" /etc/group)\n\
         if [ -z "$USERNAME" ]; then\n\
 	        USERNAME=host-user\n\
             if [ -z "$GROUPNAME" ]; then\n\
